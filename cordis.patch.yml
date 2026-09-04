@@ -1,0 +1,13 @@
+# Patch file for DeepSeek Harness profile integration
+# Note: Zero extra ports needed (no 8080/8088). Runs directly on DSH port 3080.
+- insert:
+    - id: "plugin:workspace-files"
+      name: "dsh-plugin-workspace-files"
+      inject:
+        - webServer
+      config:
+        prefixPath: "/files"
+        documentsDirName: "Documents"
+        maxFilesPerTurn: 5
+        maxPdfChars: 180000
+        renderPdfPages: 2

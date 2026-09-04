@@ -1,0 +1,33 @@
+{
+  "name": "dsh-plugin-workspace-files",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness plugin for Mac Finder-style workspace file manager, universal in-chat drag-and-drop intake, and direct LLM document analysis",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types.d.ts",
+  "author": "garciamoonshine",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garciamoonshine/dsh-plugin-workspace-files.git"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "cordis-plugin",
+    "file-manager",
+    "workspace-upload",
+    "pdf-analysis",
+    "multimodal"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/schemastery": "*"
+  }
+}

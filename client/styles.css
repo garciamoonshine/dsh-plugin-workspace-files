@@ -1,0 +1,179 @@
+/* Suppress native DSH image-only drop overlay */
+div[class*="DropOverlay"], [class*="_mask"][role="status"], [class*="UploadIllustration"] {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+#dsh-file-manager-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  color: var(--dsw-alias-label-secondary, #94a3b8);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+#dsh-file-manager-btn:hover {
+  background: var(--dsw-alias-interactive-bg-hover, rgba(255,255,255,0.08)) !important;
+  color: var(--dsw-alias-label-primary, #fff) !important;
+}
+.hHd-Xa_collapsed #dsh-file-manager-btn, [class*="_collapsed"] #dsh-file-manager-btn {
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+}
+.hHd-Xa_collapsed #dsh-file-manager-btn .dsh-fm-label, [class*="_collapsed"] #dsh-file-manager-btn .dsh-fm-label {
+  display: none !important;
+}
+
+#dsh-fm-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999990;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+}
+#dsh-fm-window {
+  width: 90vw;
+  max-width: 1240px;
+  height: 82vh;
+  max-height: 860px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: dsh-fm-pop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes dsh-fm-pop {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+#dsh-fm-header {
+  height: 42px;
+  background: #202024;
+  border-bottom: 1px solid #27272a;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  user-select: none;
+}
+.dsh-fm-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dsh-fm-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+}
+.dsh-fm-dot-close { background: #ef4444; }
+.dsh-fm-dot-min { background: #eab308; }
+.dsh-fm-dot-max { background: #22c55e; }
+#dsh-fm-title {
+  flex: 1;
+  text-align: center;
+  color: #e4e4e7;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.dsh-fm-actions {
+  display: flex;
+  gap: 8px;
+}
+.dsh-fm-act-btn {
+  background: transparent;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+.dsh-fm-act-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+#dsh-fm-iframe {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #18181b;
+}
+
+#dsh-drop-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(10, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+#dsh-drop-box {
+  border: 2px dashed #3b82f6;
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  background: rgba(59, 130, 246, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 520px;
+  width: 80%;
+  animation: dsh-drop-pop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes dsh-drop-pop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+#dsh-upload-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000000;
+  background: #1e293b;
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  padding: 12px 20px;
+  color: #f8fafc;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+#dsh-upload-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
